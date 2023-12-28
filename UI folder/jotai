@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Flask App</title>
+    <!-- Add any additional styles or scripts here -->
+</head>
+<body>
+    <form action="/process_text" method="POST">
+        <label for="raw_text">Enter Raw Text:</label>
+        <textarea name="raw_text" id="raw_text" cols="30" rows="10"></textarea>
+        <button type="submit">Process Text</button>
+    </form>
+
+    <hr>
+
+    <!-- Output Fields -->
+    {% for chapter in chapters %}
+        <div>
+            <h3>{{ chapter['name'] }}</h3>
+            <p>{{ chapter['text'] }}</p>
+        </div>
+    {% endfor %}
+
+    <!-- Buttons -->
+    <div>
+        <h3>Professional Modifications</h3>
+        {% for i in range(1, 16) %}
+            <button type="button" class="modification-button" onclick="makeModification({{ i }})">Modification {{ i }}</button>
+        {% endfor %}
+    </div>
+
+    <!-- Toggles -->
+    <div>
+        <h3>Toggle 1: Customize Output Fields</h3>
+        <label><input type="checkbox" name="toggle_option_1"> Option 1</label>
+        <label><input type="checkbox" name="toggle_option_2"> Option 2</label>
+        <!-- Add more toggle options as needed -->
+
+        <h3>Toggle 2: Processed Chapters Destination</h3>
+        <label><input type="radio" name="destination" value="toggle_1"> Toggle 1</label>
+        <label><input type="radio" name="destination" value="toggle_2"> Toggle 2</label>
+        <!-- Add more toggle destinations as needed -->
+    </div>
+
+    <!-- Plus Signs -->
+    <div>
+        <label for="chapter_name">Chapter Name:</label>
+        <input type="text" name="chapter_name" id="chapter_name">
+        <button type="button" class="plus-button" onclick="saveChapter()">+</button>
+    </div>
+
+    <!-- Ready Button and PDF Heading -->
+    <div>
+        <label for="pdf_heading">PDF Heading:</label>
+        <input type="text" name="pdf_heading" id="pdf_heading">
+        <button type="button" onclick="generatePDF()">Ready</button>
+    </div>
+
+    <!-- Add any additional HTML elements as needed -->
+    <script>
+        // Add any additional JavaScript functions here
+        function makeModification(modificationNumber) {
+            // Implement logic to handle modification based on the button clicked
+            alert('Implement modification logic for Modification ' + modificationNumber);
+        }
+
+        function saveChapter() {
+            // Implement logic to save chapter
+            alert('Implement logic to save chapter');
+        }
+
+        function generatePDF() {
+            // Implement logic to generate PDF
+            alert('Implement logic to generate PDF');
+        }
+    </script>
+</body>
+</html>
