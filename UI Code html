@@ -2,3 +2,4 @@
 <textarea name="ekaoutput" placeholder="Ensimmäinen output" cols="55" rows="22" minlength="12" maxlength="1111" required></textarea> // 1 output
 <textarea name="tokaoutput" placeholder="Ensimmäinen output" cols="55" rows="22" minlength="12" maxlength="1111" required></textarea> // 2 output
 <textarea name="kolmasoutput" placeholder="Ensimmäinen output" cols="55" rows="22" minlength="12" maxlength="1111" required></textarea> // 3 output
+<input type="text" name="Otsikko" placeholder="Kirjoita otsikko" size="33"> // Otsikko teksti input
