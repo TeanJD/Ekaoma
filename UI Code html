@@ -3,3 +3,85 @@
 <textarea name="tokaoutput" placeholder="Ensimmäinen output" cols="55" rows="22" minlength="12" maxlength="1111" required></textarea> // 2 output
 <textarea name="kolmasoutput" placeholder="Ensimmäinen output" cols="55" rows="22" minlength="12" maxlength="1111" required></textarea> // 3 output
 <input type="text" name="Otsikko" placeholder="Kirjoita otsikko" size="33"> // Otsikko teksti input
+#H dropdowmn menu koodi
+<code><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Builder</title>
+  <style>
+    /* Style for the delete button */
+    .delete-btn {
+      cursor: pointer;
+      color: red;
+      margin-left: 10px;
+    }
+
+    /* Style for the add button */
+    .add-btn {
+      cursor: pointer;
+      font-size: 20px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<select id="chapterDropdown">
+  <option value="collected">Collected</option>
+</select>
+
+<!-- Input and buttons for adding chapters -->
+<input type="text" id="newChapter" placeholder="New Chapter">
+<span class="add-btn" onclick="addChapter()">+</span>
+
+<script>
+  function addOption(value, text) {
+    var dropdown = document.getElementById("chapterDropdown");
+    var option = document.createElement("option");
+    option.value = value;
+    option.text = text;
+    dropdown.add(option);
+  }
+
+  function addChapter() {
+    var newChapterInput = document.getElementById("newChapter");
+    var newChapterValue = newChapterInput.value.trim();
+
+    if (newChapterValue !== "") {
+      addOption(newChapterValue, newChapterValue);
+      newChapterInput.value = "";
+    }
+  }
+
+  // Function to delete selected option
+  function deleteChapter() {
+    var dropdown = document.getElementById("chapterDropdown");
+    var selectedOptionIndex = dropdown.selectedIndex;
+
+    if (selectedOptionIndex !== -1) {
+      dropdown.remove(selectedOptionIndex);
+    }
+  }
+
+  // Event listener for the delete button
+  document.getElementById("chapterDropdown").addEventListener("change", function() {
+    var deleteBtn = document.getElementById("deleteBtn");
+
+    // Show delete button only when an option (chapter) is selected
+    deleteBtn.style.display = this.selectedIndex !== 0 ? "inline" : "none";
+  });
+
+  // Initialize delete button
+  var deleteBtn = document.createElement("button");
+  deleteBtn.id = "deleteBtn";
+  deleteBtn.className = "delete-btn";
+  deleteBtn.textContent = "Delete Chapter";
+  deleteBtn.style.display = "none";
+  deleteBtn.onclick = deleteChapter;
+  document.body.appendChild(deleteBtn);
+</script>
+
+</body>
+</html>
