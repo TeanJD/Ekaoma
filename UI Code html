@@ -2,8 +2,9 @@
 <textarea name="ekaoutput" placeholder="Ensimmäinen output" cols="55" rows="22" minlength="12" maxlength="1111" required></textarea> // 1 output
 <textarea name="tokaoutput" placeholder="Ensimmäinen output" cols="55" rows="22" minlength="12" maxlength="1111" required></textarea> // 2 output
 <textarea name="kolmasoutput" placeholder="Ensimmäinen output" cols="55" rows="22" minlength="12" maxlength="1111" required></textarea> // 3 output
-<input type="text" name="Otsikko" placeholder="Kirjoita otsikko" size="33"> // Otsikko teksti input
-#H dropdowmn menu koodi
+<input type="text" name="Otsikko" placeholder="Negatives" cols="44" rows="11" minlength="12" maxlength="1111" required></textarea> 
+
+#Hdropdowmn menu koodi
 <code><!DOCTYPE html>
 <html lang="en">
 <head>
