@@ -31,3 +31,113 @@ eka teksti "Hi! I'm looking to gain coding skills, particularly in Python for th
 Remember to refer to the specific sections of the provided document for detailed guidelines and best practices throughout the development process.
 
 $PAGE_1,$PAGE_2,$PAGE_3,$PAGE_4,$PAGE_11,$PAGE_12
+
+Sure, here is a list of all the objectives that require the use of JavaScript in the PDF generator, along with a brief description of each:
+
+1. Input Text Functionality: Capture and store user input from the textarea in the Input Box and implement event listeners to respond to user interactions in the textarea.
+Example JavaScript code:
+```
+const inputBox = document.querySelector('#input-box');
+inputBox.addEventListener('input', (event) => {
+  const userInput = event.target.value;
+  // Store user input for further processing
+});
+```
+
+2. Output Text Functionality: Dynamically update the content of the Output Boxes based on user input.
+Example JavaScript code:
+```
+const outputBox = document.querySelector('#output-box');
+function updateOutputBox(content) {
+  outputBox.innerHTML = content;
+}
+```
+
+3. Editing Options Functionality: Handle the events when the user clicks on the editing options buttons.
+Example JavaScript code:
+```
+const grammarButton = document.querySelector('#grammar-button');
+grammarButton.addEventListener('click', () => {
+  // Handle grammar correction functionality
+});
+```
+
+4. Additional Input Field Functionality: Handle the event when the user clicks on the "Add Negative Prompt" button and store the user's input in the input field for the PDF title.
+Example JavaScript code:
+```
+const addPromptButton = document.querySelector('#add-prompt-button');
+addPromptButton.addEventListener('click', () => {
+  const promptInput = document.querySelector('#prompt-input').value;
+  // Store prompt input for further processing
+});
+```
+
+5. Download Functionality: Generate the PDF content based on user input and initiate the download process using appropriate browser functionalities.
+Example JavaScript code:
+```
+const downloadButton = document.querySelector('#download-button');
+downloadButton.addEventListener('click', () => {
+  // Generate PDF content based on user input
+  // Initiate download process
+});
+```
+
+6. Integration with Frontend: Manage user interactions and update the UI dynamically, such as using event-driven programming to respond to user actions.
+Example JavaScript code:
+```
+const inputBox = document.querySelector('#input-box');
+inputBox.addEventListener('input', (event) => {
+  const userInput = event.target.value;
+  // Update UI dynamically based on user input
+});
+```
+
+7. Bullet Points Button: Identify list-like structures in the text and transform them into a more visually organized bullet-point format.
+Example JavaScript code:
+```
+const bulletPointsButton = document.querySelector('#bullet-points-button');
+bulletPointsButton.addEventListener('click', () => {
+  // Identify list-like structures in the text
+  // Transform them into bullet points
+});
+```
+
+8. Suggestions Button: Send requests to the OpenAI API for content suggestions and update the content in the Output Boxes with the API's suggested improvements.
+Example JavaScript code:
+```
+const suggestionsButton = document.querySelector('#suggestions-button');
+suggestionsButton.addEventListener('click', () => {
+  // Send request to OpenAI API for content suggestions
+  // Update content in Output Boxes with API's suggested improvements
+});
+```
+
+9. Vague Points Button: Interact with the OpenAI API to detect and suggest improvements for vague expressions and update the content in the Output Boxes with the API's suggested improvements.
+Example JavaScript code:
+```
+const vaguePointsButton = document.querySelector('#vague-points-button');
+vaguePointsButton.addEventListener('click', () => {
+  // Interact with OpenAI API to detect and suggest improvements for vague expressions
+  // Update content in Output Boxes with API's suggested improvements
+});
+```
+
+10. Add Examples Button: Insert predefined or generated examples into the Input Box and ensure that the added examples seamlessly integrate with the user's existing content.
+Example JavaScript code:
+```
+const addExamplesButton = document.querySelector('#add-examples-button');
+addExamplesButton.addEventListener('click', () => {
+  // Insert predefined or generated examples into Input Box
+  // Ensure added examples seamlessly integrate with user's existing content
+});
+```
+
+11. Shorter Button: Send requests to the OpenAI API for shorter alternatives and update the content in the Output Boxes with the API's suggested shorter text.
+Example JavaScript code:
+```
+const shorterButton = document.querySelector('#shorter-button');
+shorterButton.addEventListener('click', () => {
+  // Send request to OpenAI API for shorter alternatives
+  // Update content in Output Boxes with API's suggested shorter text
+});
+```
