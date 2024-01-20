@@ -1,17 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF Generator</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Your Page Title</title>
 </head>
+
 <body>
-    <h1>Welcome to the PDF Generator</h1>
-    <div id="pdfContent">
-        <!-- This is where the user will input and edit the content for the PDF -->
-    </div>
-    <button id="downloadBtn">Download PDF</button>
-    <script src="script.js"></script>
+
+  <button class="Lataa">Download PDF</button>
+  <input type="text" class="PDFname" name="PDFtitleInput" placeholder="Write PDFs title here">
+
+  <button class="correct-grammar">Correct grammar</button>
+  <button class="enhance-wording">Enhance wording</button>
+  <button class="new-wording">New wording</button>
+  <button class="more-clear">More Clear</button>
+  <button class="add-examples">Add Examples</button>
+  <button class="shorter">Shorter</button>
+  <button class="bulletpoints">Bulletpoints</button>
+  <button class="suggestions">Suggestions</button>
+  <button class="vague-points">Vague points</button>
+  <button class="create-draft">Create draft</button>
+
+  <p class="Title">Subheading:</p>
+
+  <textarea class="inputprompt" placeholder="Prompt here" cols="44" rows="11" minlength="12" maxlength="1111"
+    required></textarea>
+
+  <textarea class="ekaoutput" placeholder="First output" cols="55" rows="22" minlength="12" maxlength="1111"
+    required></textarea>
+
+  <textarea class="tokaoutput" placeholder="Second output" cols="55" rows="22" minlength="12" maxlength="1111"
+    required></textarea>
+
+  <textarea class="kolmasoutput" placeholder="Third output" cols="55" rows="22" minlength="12" maxlength="1111"
+    required></textarea>
+
+  <textarea class="negatives" placeholder="Negatives" cols="44" rows="11" minlength="12" maxlength="1111"
+    required></textarea>
+
+  <input type="text" class="Chaptername" name="ChapterInput" placeholder="Here">
+
+  <div class="dropdown-wrapper">
+    <p>Saved:</p>
+    <select class="saved">
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+    </select>
+  </div>
+
+  <div class="plus-icon-input">&#43;</div>
+  <div class="plus-icon-output1">&#43;</div>
+  <div class="plus-icon-output2">&#43;</div>
+  <div class="plus-icon-output3">&#43;</div>
+
+  <span class="copy-input">&#x2398;</span>
+  <span class="copy-output1">&#x2398;</span>
+  <span class="copy-output2">&#x2398;</span>
+  <span class="copy-output3">&#x2398;</span>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
