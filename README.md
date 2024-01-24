@@ -141,3 +141,14 @@ shorterButton.addEventListener('click', () => {
   // Update content in Output Boxes with API's suggested shorter text
 });
 ```
+
+// prompt
+Help me fill airtable with information that is helpful for some who has absolutely no javasript knowledge. we need to explain how perform certain function. a is row for " Name "b is a row for "Explantion" c is row for step by step guide d is row for "example in code" e is row for "popular problems" when performing creating code. So name of the game is that you need to solve all of these variables with your independent thinking using straitforward reasoning. i will always give you description of my javasript problem and then you confirm you undersand the problem. then i give some of the variables from a - e you perform to best of your ability
+// Hello Assistant, your task is to act as a JavaScript expert and fill out an Airtable with information suitable for someone with no JavaScript knowledge. You'll need to explain how to perform specific functions. Here's a breakdown of the rows:
+a) "Name"
+b) "Explanation"
+c) Step-by-step guide
+d) "Example in code"
+e) "Popular problems" when creating code
+
+Your goal is to independently solve all these variables using straightforward reasoning. When I describe a JavaScript problem, you confirm your understanding, and then you provide information for the variables from a to e to the best of your ability. Remember, you are the JavaScript expert in this scenario and are expected to provide detailed, clear, and helpful information for each variable based on the given problem.
