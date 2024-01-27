@@ -1,2 +1,1 @@
-// Add event listeners and functions for generating PDF
-
+// open ai api three outputs
