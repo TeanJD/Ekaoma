@@ -14,6 +14,17 @@ const apiKeys = [
   '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'
 ];
 
+
+
+// input text functionality - Utilize JavaScript to capture and store user input.- Implement event listeners to respond to user interactions in the textarea.
+
+
+
+
+
+
+
+
 const buttonNames = [
   'Enhance wording',
   'New wording',
@@ -30,7 +41,9 @@ async function callOpenAI(promptText, apiKey) {
   
         
     
-    - sit async funtion
+    - sit async funtion napeille
+    
+
     
     
 // request body - tarviit sen ku siihe laitetaa se prompt sun napist ja input texti - use fetch to do the api request itself -parsing response json nii voit ottaa apilt tullu jutu haltuu
