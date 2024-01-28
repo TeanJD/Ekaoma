@@ -26,11 +26,13 @@ const buttonNames = [
   'Create draft'
 ];
 
-
+async function callOpenAI(promptText, apiKey) {
+  
         
     
     - sit async funtion
-//async function generateResponse(prompt, apiKey, maxTokens) 
+    
+    
 // request body - tarviit sen ku siihe laitetaa se prompt sun napist ja input texti - use fetch to do the api request itself -parsing response json nii voit ottaa apilt tullu jutu haltuu
 //
 
