@@ -1,4 +1,35 @@
-// eka apiurl - sit apikey joka napille- sit async funtion
+// eka apiurl 
+const apiurl = ´https://api.openai.com/v1/completions´
+
+const apiKeys = [
+  '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',
+  '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',
+  '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',
+  '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',
+  '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',
+  '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',
+  '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',
+  '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',
+  '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',
+  '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'
+];
+
+const buttonNames = [
+  'Enhance wording',
+  'New wording',
+  'More clear',
+  'Add examples',
+  'Shorter',
+  'Bulletpoints',
+  'Suggestions',
+  'Vague points',
+  'Create draft'
+];
+
+
+        
+    
+    - sit async funtion
 //async function generateResponse(prompt, apiKey, maxTokens) 
 // request body - tarviit sen ku siihe laitetaa se prompt sun napist ja input texti - use fetch to do the api request itself -parsing response json nii voit ottaa apilt tullu jutu haltuu
 //
