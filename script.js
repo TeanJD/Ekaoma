@@ -1,4 +1,4 @@
-// eka apiurl 
+
 const apiurl = ´https://api.openai.com/v1/completions´
 
 const apiKeys = [
