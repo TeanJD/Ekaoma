@@ -32,31 +32,35 @@ const buttonNames = [
 
 
 
-// lisätää prompti ekaa nappii grammarbutton
+// lisätää prompti ekaa nappii grammarbutton - täytetään 
 
 const grammarButton = document.querySelector(".correct-grammar");
 
 grammarButton.addEventListener("click", function () {
     const draftInput = document.querySelector(".inputprompt").value;
-    const titleInput = document.querySelector(".Chaptername").value;
 
-    if (titleInput.trim() !== "") {
-        const grammarPrompt = "Please ensure that the grammar in your response is correct. Your task is to review the text and make necessary corrections to ensure proper grammar usage throughout. Your response should demonstrate a clear understanding of grammar rules and conventions, and it should effectively communicate the intended message with accurate and appropriate grammar usage. Please note that your corrections should cover various aspects of grammar, including but not limited to sentence structure, verb tense, subject-verb agreement, punctuation, and use of articles. Your response should be flexible enough to allow for various relevant and creative examples of grammar corrections.";
+    const grammarPrompt = "Please ensure that the grammar in your response is correct. Your task is to review the text and make necessary corrections to ensure proper grammar usage throughout. Your response should demonstrate a clear understanding of grammar rules and conventions, and it should effectively communicate the intended message with accurate and appropriate grammar usage. Please note that your corrections should cover various aspects of grammar, including but not limited to sentence structure, verb tense, subject-verb agreement, punctuation, and use of articles. Your response should be flexible enough to allow for various relevant and creative examples of grammar corrections.";
 
+    const apiKey = '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'; // Replace with your actual API key
+
+    // Output field classes
+    const outputFields = [".ekaoutput", ".tokaoutput", ".kolmasoutput"];
+
+    // Make API requests for each output field
+    outputFields.forEach((outputField, index) => {
         const requestBody = {
-            apiKey: grammarApiKey,
-            title: titleInput,
+            apiKey,
             text: draftInput,
             prompt: grammarPrompt,
         };
 
-        console.log("API Request Body:", requestBody);
+        console.log(`API Request Body ${index + 1}:`, requestBody);
 
-        document.querySelector(".inputprompt").value = "";
-        document.querySelector(".Chaptername").value = "";
-    } else {
-        console.error("Please fill in the title before proceeding.");
-    }
+        // You need to make the actual API call here and handle the response
+        // For now, I'm just simulating a response and updating the output field
+        const simulatedApiResponse = `Simulated API Response ${index + 1}`;
+        document.querySelector(outputField).value = simulatedApiResponse;
+    });
 });
     
    
