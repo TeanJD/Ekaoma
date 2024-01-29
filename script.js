@@ -1,4 +1,4 @@
-
+// apiurl ja api keys
 const apiurl = ´https://api.openai.com/v1/completions´
 
 const apiKeys = [
@@ -15,11 +15,7 @@ const apiKeys = [
 ];
 
 
-
-
-
-
-
+// nimetää napit
 
 const buttonNames = [
   'Enhance wording',
@@ -32,6 +28,11 @@ const buttonNames = [
   'Vague points',
   'Create draft'
 ];
+
+
+
+
+// lisätää prompti ekaa nappii grammarbutton
 
 const grammarButton = document.querySelector(".correct-grammar");
 
@@ -59,6 +60,14 @@ grammarButton.addEventListener("click", function () {
 });
     
    
+  
+  
+  
+  
+  
+  
+  
+  
 console.log(output1);
 console.log(output2);
 console.log(output3);
