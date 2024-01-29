@@ -16,10 +16,6 @@ const apiKeys = [
 
 
 
-// input text functionality - Utilize JavaScript to capture and store user input.- Implement event listeners to respond to user interactions in the textarea.
-
-
-
 
 
 
@@ -37,19 +33,32 @@ const buttonNames = [
   'Create draft'
 ];
 
-async function callOpenAI(promptText, apiKey) {
-  
-        
-    
-    - sit async funtion napeille
-    
+const grammarButton = document.querySelector(".correct-grammar");
 
-    
-    
-// request body - tarviit sen ku siihe laitetaa se prompt sun napist ja input texti - use fetch to do the api request itself -parsing response json nii voit ottaa apilt tullu jutu haltuu
-//
+grammarButton.addEventListener("click", function () {
+    const draftInput = document.querySelector(".inputprompt").value;
+    const titleInput = document.querySelector(".Chaptername").value;
 
+    if (titleInput.trim() !== "") {
+        const grammarPrompt = "Please ensure that the grammar in your response is correct. Your task is to review the text and make necessary corrections to ensure proper grammar usage throughout. Your response should demonstrate a clear understanding of grammar rules and conventions, and it should effectively communicate the intended message with accurate and appropriate grammar usage. Please note that your corrections should cover various aspects of grammar, including but not limited to sentence structure, verb tense, subject-verb agreement, punctuation, and use of articles. Your response should be flexible enough to allow for various relevant and creative examples of grammar corrections.";
 
+        const requestBody = {
+            apiKey: grammarApiKey,
+            title: titleInput,
+            text: draftInput,
+            prompt: grammarPrompt,
+        };
+
+        console.log("API Request Body:", requestBody);
+
+        document.querySelector(".inputprompt").value = "";
+        document.querySelector(".Chaptername").value = "";
+    } else {
+        console.error("Please fill in the title before proceeding.");
+    }
+});
+    
+   
 console.log(output1);
 console.log(output2);
 console.log(output3);
