@@ -15,22 +15,9 @@ const apiKeys = [
 ];
 
 
-// nimetää napit
+// eka nappi grammar
 
-const buttonNames = [
-  'Enhance wording',
-  'New wording',
-  'More clear',
-  'Add examples',
-  'Shorter',
-  'Bulletpoints',
-  'Suggestions',
-  'Vague points',
-  'Create draft'
-];
-
-
-
+const grammarButton = document.querySelector(".correct-grammar");
 
 grammarButton.addEventListener("click", function () {
     const draftInput = document.querySelector(".inputprompt").value;
@@ -82,8 +69,9 @@ grammarButton.addEventListener("click", function () {
    
   
   
-  
-  
+// toka nappi
+
+
   
   
   
