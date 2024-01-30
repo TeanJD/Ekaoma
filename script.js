@@ -177,8 +177,62 @@ newWordingButton.addEventListener("click", function () {
         });
     });
 });
-  
 
+
+  
+// neljä nappi
+
+const moreClearButton = document.querySelector(".more-clear");
+
+// Add an event listener to the new button
+moreClearButton.addEventListener("click", function () {
+    const draftInput = document.querySelector(".inputprompt").value;
+
+    // New prompt
+    const moreClearPrompt = "Rewrite the user's input, ensuring that your response is much clearer and more precise.";
+
+    const apiKey = apiKeys[Math.floor(Math.random() * apiKeys.length)]; // Randomly select an API key
+
+    // Output field classes
+    const outputFields = [".ekaoutput", ".tokaoutput", ".kolmasoutput"];
+
+    // Make API requests for each output field
+    outputFields.forEach((outputField, index) => {
+        const requestBody = {
+            model: "text-davinci-002", // The model to use for completion
+            prompt: `${moreClearPrompt}\n\n${draftInput}`,
+            temperature: 0.7,
+            max_tokens: 256,
+            top_p: 1,
+            frequency_penalty: 0,
+            presence_penalty: 0
+        };
+
+        fetch(apiurl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${apiKey}`
+            },
+            body: JSON.stringify(requestBody)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`API request failed with status ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Assuming the API returns the corrected text in data.choices[0].text
+            const correctedText = data.choices[0].text;
+            document.querySelector(outputField).value = correctedText;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Handle the error appropriately, e.g., show an error message to the user
+        });
+    });
+});
 
 
 console.log(output1);
