@@ -71,9 +71,62 @@ grammarButton.addEventListener("click", function () {
   
 // toka nappi
 
+// Select the new button by its class
+const enhanceWordingButton = document.querySelector(".enhance-wording");
 
+// Add an event listener to the new button
+enhanceWordingButton.addEventListener("click", function () {
+    const draftInput = document.querySelector(".inputprompt").value;
+
+    // New prompt
+    const grammarPrompt = "Revise the wording of this text to improve its clarity, coherence, and impact. Your task is to rephrase the given text in a way that enhances its overall effectiveness, readability, and communicative power. Please ensure that the revised text maintains the original meaning and intention but with improved language usage and expression. Your revisions should aim to strengthen the text's impact and make it more compelling for the intended audience.";
+
+    const apiKey = apiKeys[Math.floor(Math.random() * apiKeys.length)]; // Randomly select an API key
+
+    // Output field classes
+    const outputFields = [".ekaoutput", ".tokaoutput", ".kolmasoutput"];
+
+    // Make API requests for each output field
+    outputFields.forEach((outputField, index) => {
+        const requestBody = {
+            model: "text-davinci-002", // The model to use for completion
+            prompt: `${grammarPrompt}\n\n${draftInput}`,
+            temperature: 0.7,
+            max_tokens: 256,
+            top_p: 1,
+            frequency_penalty: 0,
+            presence_penalty: 0
+        };
+
+        fetch(apiurl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${apiKey}`
+            },
+            body: JSON.stringify(requestBody)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`API request failed with status ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Assuming the API returns the corrected text in data.choices[0].text
+            const correctedText = data.choices[0].text;
+            document.querySelector(outputField).value = correctedText;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Handle the error appropriately, e.g., show an error message to the user
+        });
+    });
+});
   
-  
+
+
+
   
   
 console.log(output1);
