@@ -126,9 +126,61 @@ enhanceWordingButton.addEventListener("click", function () {
   
 
 
+// kolmas nappi
 
+const newWordingButton = document.querySelector(".new-wording");
+
+
+newWordingButton.addEventListener("click", function () {
+    const draftInput = document.querySelector(".inputprompt").value;
+
+
+    const newWordingPrompt = "Use new language to express the same idea, but with a fresh perspective. Make sure to rephrase the content in a way that captures the essence of the original message while bringing a new angle to it. Avoid repeating the exact wording and instead offer a unique take on the concept. Remember, creativity and originality are key here. Let's see how you can reframe the message with a different linguistic approach.";
+
+    const apiKey = apiKeys[Math.floor(Math.random() * apiKeys.length)]; // Randomly select an API key
+
+    const outputFields = [".ekaoutput", ".tokaoutput", ".kolmasoutput"];
+
+    outputFields.forEach((outputField, index) => {
+        const requestBody = {
+            model: "text-davinci-002", // The model to use for completion
+            prompt: `${newWordingPrompt}\n\n${draftInput}`,
+            temperature: 0.7,
+            max_tokens: 256,
+            top_p: 1,
+            frequency_penalty: 0,
+            presence_penalty: 0
+        };
+
+        fetch(apiurl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${apiKey}`
+            },
+            body: JSON.stringify(requestBody)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`API request failed with status ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Assuming the API returns the corrected text in data.choices[0].text
+            const correctedText = data.choices[0].text;
+            document.querySelector(outputField).value = correctedText;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Handle the error appropriately, e.g., show an error message to the user
+        });
+    });
+});
   
-  
+
+
+
 console.log(output1);
 console.log(output2);
 console.log(output3);
