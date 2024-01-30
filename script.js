@@ -180,7 +180,7 @@ newWordingButton.addEventListener("click", function () {
 
 
   
-// neljä nappi
+// neljäs nappi
 
 const moreClearButton = document.querySelector(".more-clear");
 moreClearButton.addEventListener("click", function () {
@@ -231,7 +231,7 @@ moreClearButton.addEventListener("click", function () {
 
 
 
-//viiden nappi
+//viides nappi
 
 const addExamplesButton = document.querySelector(".add-examples");
 
@@ -284,6 +284,124 @@ addExamplesButton.addEventListener("click", function () {
         });
     });
 });
+
+
+
+//kuudes nappi
+
+// Select the new button by its class
+const shorterButton = document.querySelector(".shorter");
+
+// Add an event listener to the new button
+shorterButton.addEventListener("click", function () {
+    const draftInput = document.querySelector(".inputprompt").value;
+
+    // New prompt
+    const shorterPrompt = "You are tasked with summarizing the following text, maintaining its essence and key details, but making it more concise. Ensure that the main points and important details are preserved while shortening the text. Aim for a balanced reduction without losing the essence and juicy details. Remember, the goal is to be concise while retaining the core information and key elements.";
+
+    const apiKey = apiKeys[Math.floor(Math.random() * apiKeys.length)]; // Randomly select an API key
+
+    // Output field classes
+    const outputFields = [".ekaoutput", ".tokaoutput", ".kolmasoutput"];
+
+    // Make API requests for each output field
+    outputFields.forEach((outputField, index) => {
+        const requestBody = {
+            model: "text-davinci-002", // The model to use for completion
+            prompt: `${shorterPrompt}\n\n${draftInput}`,
+            temperature: 0.7,
+            max_tokens: 256,
+            top_p: 1,
+            frequency_penalty: 0,
+            presence_penalty: 0
+        };
+
+        fetch(apiurl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${apiKey}`
+            },
+            body: JSON.stringify(requestBody)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`API request failed with status ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Assuming the API returns the corrected text in data.choices[0].text
+            const correctedText = data.choices[0].text;
+            document.querySelector(outputField).value = correctedText;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Handle the error appropriately, e.g., show an error message to the user
+        });
+    });
+});
+
+//seitsämäs nappi mis on 4 nappii 
+
+// Function to handle button click
+function handleButtonClick(buttonClass, prompt) {
+    const targetButton = document.querySelector(buttonClass);
+
+    targetButton.addEventListener("click", function () {
+        const draftInput = document.querySelector(".inputprompt").value;
+
+        const apiKey = apiKeys[Math.floor(Math.random() * apiKeys.length)];
+
+        const outputFields = [".ekaoutput", ".tokaoutput", ".kolmasoutput"];
+
+        outputFields.forEach((outputField, index) => {
+            const requestBody = {
+                model: "text-davinci-002",
+                prompt: `${prompt}\n\n${draftInput}`,
+                temperature: 0.7,
+                max_tokens: 256,
+                top_p: 1,
+                frequency_penalty: 0,
+                presence_penalty: 0
+            };
+
+            fetch(apiurl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify(requestBody)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`API request failed with status ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                const correctedText = data.choices[0].text;
+                document.querySelector(outputField).value = correctedText;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Handle the error appropriately
+            });
+        });
+    });
+}
+
+// Button and prompt pairs
+handleButtonClick(".bulletpoints", "Write a high-quality chapter of text that seamlessly ties together the given bullet points in a natural and cohesive manner. Ensure that each bullet point is effectively incorporated into the narrative, creating a well-connected and engaging storyline. Your writing should flow smoothly, maintaining a consistent tone and style throughout the chapter. Emphasize creativity and originality in your narrative, allowing for a unique and compelling integration of the provided bullet points.");
+
+handleButtonClick(".suggestions", "Provide intuitive, holistic, and diverse suggestions for improving the communication in this chapter of text. Your suggestions should aim to enhance the overall clarity, coherence, and inclusivity of the communication. Consider incorporating a range of perspectives, ideas, and approaches to ensure that the chapter effectively communicates its intended message to a wide audience. Your suggestions should encourage engaging and thought-provoking communication that resonates with diverse readers.");
+
+handleButtonClick(".vague-points", "Identify and clarify any ambiguous or unclear instructions in the provided text to enhance reader comprehension. Please ensure that the revised text is clear, specific, and easy to understand, addressing any potential areas of confusion to facilitate better comprehension for the readers seeking to understand the given instructions.");
+
+handleButtonClick(".create-draft", "Please draft instructions for someone who will be building the product or service you describe. If there are multiple methods, simply mention them in brackets without explaining each method. Your instructions should be clear, detailed, and organized, providing the necessary information for constructing or implementing the product or service. Please include any relevant steps, materials, tools, and specifications required for the construction or implementation process.");
+
+// Additional buttons and prompts can be added in a similar manner
 
 
 
